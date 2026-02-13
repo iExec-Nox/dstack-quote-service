@@ -21,11 +21,11 @@ pub struct QuoteParams {
 /// # Returns
 ///
 /// JSON response containing:
-/// - `service`: The service name ("dstack-quote-sidecar")
+/// - `service`: The service name ("dstack-quote-service")
 /// - `timestamp`: Current UTC timestamp in RFC3339 format
 pub async fn root() -> Json<Value> {
     Json(json!({
-        "service": "dstack-quote-sidecar",
+        "service": "dstack-quote-service",
         "timestamp": Utc::now().to_rfc3339()
     }))
 }
