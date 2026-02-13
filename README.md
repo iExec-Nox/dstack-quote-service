@@ -65,7 +65,7 @@ Returns service information and current timestamp.
 
 ```json
 {
-  "service": "dstack-quote-sidecar",
+  "service": "dstack-quote-service",
   "timestamp": "2026-02-12T09:30:45.123456Z"
 }
 ```
