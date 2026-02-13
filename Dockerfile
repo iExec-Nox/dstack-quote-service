@@ -14,7 +14,7 @@ FROM alpine:3.23 AS runtime
 WORKDIR /app
 
 # Copy the binary from builder stage
-COPY --from=builder /app/target/release/dstack-quote-sidecar .
+COPY --from=builder /app/target/release/dstack-quote-service .
 
 # Run the application
-ENTRYPOINT ["/app/dstack-quote-sidecar"]
+ENTRYPOINT ["/app/dstack-quote-service"]
