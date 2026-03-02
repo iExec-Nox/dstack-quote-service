@@ -41,6 +41,8 @@ impl Application {
             .route("/quote", get(handlers::get_quote))
             // Attest endpoint
             .route("/attest", get(handlers::attest))
+            // Info endpoint
+            .route("/info", get(handlers::info))
             .with_state(self.state.clone())
             .layer(TraceLayer::new_for_http())
     }
