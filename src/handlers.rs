@@ -85,6 +85,29 @@ pub async fn get_quote(
     }
 }
 
+/// Info endpoint handler.
+///
+/// Returns information about the CVM application from the dstack guest agent,
+/// including app ID, instance ID, TCB info, and measurements.
+///
+/// # Returns
+///
+/// JSON response containing the full `InfoResponse` from the guest agent,
+/// or an error message if the request failed.
+pub async fn info(State(state): State<AppState>) -> Json<Value> {
+    match state.dstack_client.info().await {
+        Ok(info) => match serde_json::to_value(&info) {
+            Ok(v) => Json(v),
+            Err(e) => Json(json!({
+                "error": format!("failed to serialize info: {}", e)
+            })),
+        },
+        Err(e) => Json(json!({
+            "error": format!("failed to get info: {}", e)
+        })),
+    }
+}
+
 /// Attest endpoint handler.
 ///
 /// Generates an attestation quote for the given data. If no data is provided via query param,
