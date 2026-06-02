@@ -4,7 +4,7 @@ use std::sync::Arc;
 
 use dstack_sdk::dstack_client::DstackClient;
 use tokio::signal;
-use tower_http::trace::TraceLayer;
+use tower_http::{cors::CorsLayer, trace::TraceLayer};
 use tracing::{debug, info, warn};
 
 use crate::config::Config;
@@ -32,6 +32,10 @@ impl Application {
     fn build_router(&self) -> Router {
         debug!("Building application router");
 
+        let cors = CorsLayer::new()
+            .allow_methods([axum::http::Method::GET, axum::http::Method::OPTIONS])
+            .allow_origin(tower_http::cors::Any);
+
         Router::new()
             // Root endpoint
             .route("/", get(handlers::root))
@@ -45,6 +49,7 @@ impl Application {
             .route("/info", get(handlers::info))
             .with_state(self.state.clone())
             .layer(TraceLayer::new_for_http())
+            .layer(cors)
     }
 
     pub async fn run(self) -> Result<()> {
