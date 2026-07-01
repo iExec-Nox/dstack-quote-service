@@ -66,7 +66,7 @@ jobs:
   build-dockerhub-multiplatform:
     name: Build and push multi-platform image to DockerHub
     needs: prepare
-    uses: iExecBlockchainComputing/github-actions-workflows/.github/workflows/docker-build-cloud.yml@051d1b515d4159e001c539eebc833ce0317683ce # workflow state: v1.1.0
+    uses: iExecBlockchainComputing/github-actions-workflows/.github/workflows/docker-build-cloud.yml@2fc2921c9527b8e0c3217edecbb828ec75cb610a # workflow state: v1.1.0
     permissions:
       contents: read
       id-token: write
