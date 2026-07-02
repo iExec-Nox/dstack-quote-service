@@ -52,9 +52,6 @@ jobs:
     needs: prepare
     uses: iExecBlockchainComputing/github-actions-workflows/.github/workflows/docker-build.yml@2fc2921c9527b8e0c3217edecbb828ec75cb610a #workflow state: v3.5.1
     permissions:
-      contents: read
-      pull-requests: write     # Trivy/Hadolint comments
-      security-events: write   # upload SARIF
       id-token: write          # Keyless signature (Fulcio)
       attestations: write      # write SLSA attestation
       artifact-metadata: write # write attestation storage record (push-to-registry)

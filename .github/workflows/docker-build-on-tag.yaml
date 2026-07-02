@@ -41,7 +41,6 @@ jobs:
     # version du reusable incluant l'input `attest` (à ajuster au tag réellement publié)
     uses: iExecBlockchainComputing/github-actions-workflows/.github/workflows/docker-build.yml@051d1b515d4159e001c539eebc833ce0317683ce # workflow state: v3.5.0
     permissions:
-      contents: read
       id-token: write
       attestations: write
       artifact-metadata: write # write attestation storage record (push-to-registry)
@@ -68,7 +67,6 @@ jobs:
     needs: prepare
     uses: iExecBlockchainComputing/github-actions-workflows/.github/workflows/docker-build-cloud.yml@2fc2921c9527b8e0c3217edecbb828ec75cb610a # workflow state: v1.1.0
     permissions:
-      contents: read
       id-token: write
       attestations: write
       artifact-metadata: write # write attestation storage record (push-to-registry)
