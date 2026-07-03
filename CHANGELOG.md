@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/iExec-Nox/dstack-quote-service/compare/v0.1.0...v0.1.1) (2026-07-03)
+
+
+### Bug Fixes
+
+* use fully qualified name for slsa subject-name ([#10](https://github.com/iExec-Nox/dstack-quote-service/issues/10)) ([b427445](https://github.com/iExec-Nox/dstack-quote-service/commit/b427445329265eeb4e02fcc6afc14951b4f3e5d8))
+
 ## 0.1.0 (2026-07-02)
 
 
